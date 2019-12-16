@@ -18,7 +18,6 @@ Class Router
 	public function run()
 	{
 		$urlParts = explode('/', $_SERVER['REQUEST_URI']);
-		var_dump($urlParts);exit;
 		//класс контроллера
 		array_shift($urlParts);
 		$controllerName = array_shift($urlParts);
