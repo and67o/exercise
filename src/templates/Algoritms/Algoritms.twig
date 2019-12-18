@@ -6,8 +6,8 @@
 
 {% block body %}
     <ul>
-        <li><a href="">Алгоритмы1</a></li>
-        <li><a href="">Паттерны</a></li>
-        <li><a href="">Принципы</a></li>
+        {% for task, nameTask in tasks %}
+            <li><a href="/algoritms/getNeedMethod/{{ task }}">{{ nameTask }}</a></li>
+        {% endfor %}
     </ul>
 {% endblock %}
