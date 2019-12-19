@@ -8,6 +8,25 @@ use PHPUnit\Framework\TestCase;
 class AlgorithmsTest extends TestCase
 {
 	/**
+	 * @param $expected
+	 * @param $strs
+	 * @dataProvider providerGroupAnagrams
+	 */
+	public function testGroupAnagrams($expected, $strs)
+	{
+		$this->assertSame($expected, Algorithms::groupAnagramsOne($strs));
+	}
+	
+	public function providerGroupAnagrams()
+	{
+		return [
+			[
+				['aet' => ["eat", "tea", "ate"], 'ant' => ["tan", "nat"], 'abt' => ["bat"]], ["eat", "tea", "tan", "ate", "nat", "bat"]
+			],
+		];
+	}
+	
+	/**
 	 * @param array $expected
 	 * @param array $nums
 	 * @param int $target
@@ -64,6 +83,28 @@ class AlgorithmsTest extends TestCase
 		$this->assertSame($expected, Algorithms::searchInsertTwo($nums, $target));
 	}
 	
+	/**
+	 * @param array $expected
+	 * @param $n
+	 * @dataProvider providerCountPrimes
+	 */
+	public function testCountPrimes($expected, $n)
+	{
+		$this->assertSame($expected, Algorithms::countPrimes($n));
+	}
+	
+	public function providerCountPrimes()
+	{
+		return [
+			[4, 10],
+			[0, 0],
+			[32, 135],
+			[0, 2],
+			[15, 48],
+			[19, 71],
+		];
+	}
+	
 	public function providerSearchInsert()
 	{
 		return [
@@ -114,6 +155,24 @@ class AlgorithmsTest extends TestCase
 			[false, 'rat', 'car'],
 			[false, 'a', 'b'],
 			[false, 'a', 'ab'],
+		];
+	}
+	
+	/**
+	 * @param array $expected
+	 * @param $nums
+	 * @dataProvider providerMissingNumber
+	 */
+	public function testMissingNumber($expected, $nums)
+	{
+		$this->assertSame($expected, Algorithms::missingNumber($nums));
+	}
+	
+	public function providerMissingNumber()
+	{
+		return [
+			[2, [3,0,1]],
+			[8, [9,6,4,2,3,5,7,0,1]],
 		];
 	}
 }

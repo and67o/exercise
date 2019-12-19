@@ -77,6 +77,55 @@ class Algorithms
 	}
 	
 	/**
+	 * Given an array of strings, group anagrams together.
+	 * @param array $strs
+	 * @return array
+	 */
+	public static function groupAnagramsOne($strs)
+	{
+		$combineStr = [];
+		foreach ($strs as $str) {
+			$inputStr = str_split($str);
+			sort($inputStr);
+			$combineStr[implode('', $inputStr)][] = $str;
+		}
+		return $combineStr;
+	}
+	
+	/**
+	 * Count the number of prime numbers less than a non-negative number, n.
+	 * @param int $n
+	 * @return int
+	 */
+	public static function countPrimes($n)
+	{
+		$n = $n - 1;
+		$primeCount = 0;
+		while ($n > 1) {
+			if (self::isPrime($n)) {
+				$primeCount++;
+			}
+			$n--;
+		}
+		return $primeCount;
+	}
+	
+	/**
+	 * Is number prime
+	 * @param $number
+	 * @return bool
+	 */
+	public static function isPrime($number)
+	{
+		for ($i = 2; $i <= (int) sqrt($number); $i++) {
+			if ($number % $i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/**
 	 * Given a sorted array and a target value, return the index if the target is found.
 	 * If not, return the index where it would be if it were inserted in order.
 	 * @param array $nums
@@ -149,11 +198,27 @@ class Algorithms
 	 * @param $t
 	 * @return bool
 	 */
-	public static function isAnagram($s, $t) {
+	public static function isAnagram($s, $t)
+	{
 		$s = str_split($s);
 		$t = str_split($t);
 		sort($s);
 		sort($t);
-		return  $s === $t;
+		return $s === $t;
+	}
+	
+	/**
+	 * Given an array containing n distinct numbers taken from 0, 1, 2, ..., n,
+	 * find the one that is missing from the array.
+	 * @param array $nums
+	 * @return int
+	 */
+	public  static function missingNumber($nums) {
+		sort($nums);
+		for ($i = 0; $i <= count($nums); $i++) {
+			if ($i != $nums[$i]) {
+				return (int) $i;
+			}
+		}
 	}
 }
