@@ -2,7 +2,7 @@
 
 namespace Router\Adapter;
 
-class NamesJson extends namesAbstract implements Names
+class NamesJson extends NamesAbstract implements Names
 {
 	
 	private $file;

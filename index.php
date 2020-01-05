@@ -1,9 +1,11 @@
 <?php
 
+use Router\Adapter\DataLoader;
 use Router\Adapter\NamesJson;
 use Router\Router;
-use Router\Adapter\DataLoader;
 use Router\Adapter;
+use \Router\TemplateMethod\Parents;
+use \Router\TemplateMethod\Children;
 
 require_once 'router.php';
 
@@ -13,29 +15,26 @@ require_once 'vendor/autoload.php';
 $Router = new Router();
 $Router->run();
 
+//////////////////////////////////////////////////
 
-//$book = new Adapter\PaperBook();
-//$book->open();
-//$book->turnPage();
-//var_dump($book->getPage());
+//$xmlObj = new DataLoader(file_get_contents('src/adapter/data/file.xml'));
+//$names1 = new Adapter\AdapterJSON($xmlObj);
+//$data1 = $names1->handleNames();
+//$result1 = $names1->getCountNames($data1);
 //
-//$kindle = new Adapter\Kindle();
-//$book1 = new Adapter\EBookAdapter($kindle);
+//$names = new NamesJson('src/adapter/data/file.json');
+//$data = $names->handleNames();
+//$result = $names->getCountNames($data);
 //
-//$book1->open();
-//$book1->turnPage();
-//var_dump($book1->getPage());
-////////////////////////////////////////////////
+//var_dump($result1, $result);
 
+//////////////////////////////////////////////////
 
-$xmlObj = new DataLoader(file_get_contents('src/adapter/data/file.xml'));
-$names1 = new Adapter\AdapterJSON($xmlObj);
-$data1 = $names1->handleNames();
-$result1 = $names1->getCountNames($data1);
+//$parent = new Parents();
+//$parent->allDay();
+//
+//$child = new Children();
+//$child->allDay();
 
-$names = new NamesJson('src/adapter/data/file.json');
-$data = $names->handleNames();
-$result = $names->getCountNames($data);
+//////////////////////////////////////////////////
 
-
-var_dump($result, $result1);exit;

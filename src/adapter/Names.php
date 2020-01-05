@@ -1,11 +1,18 @@
 <?php
+
 namespace Router\Adapter;
 
 interface Names
 {
+	/**
+	 * @param string $filePath
+	 * @return mixed
+	 */
+	public function setFile(string $filePath);
 	
-	public function setFile($filePath);
-	
+	/**
+	 * @return mixed
+	 */
 	public function getFile();
 	
 	public function getCountNames($data);

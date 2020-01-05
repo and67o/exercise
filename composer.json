@@ -17,7 +17,8 @@
       "Router\\": "",
       "Router\\Controller\\": "src/classes/controller/",
       "Router\\Models\\": "src/classes/model/",
-      "Router\\Adapter\\": "src/adapter/"
+      "Router\\Adapter\\": "src/adapter/",
+      "Router\\TemplateMethod\\": "src/templateMethod/"
     }
   },
   "require-dev": {

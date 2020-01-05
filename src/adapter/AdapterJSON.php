@@ -4,8 +4,6 @@
 namespace Router\Adapter;
 
 
-use Router\Adapter\NamesProcess;
-
 class AdapterJSON implements Names
 {
 	/**

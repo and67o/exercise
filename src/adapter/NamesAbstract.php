@@ -1,8 +1,11 @@
 <?php
 
 namespace Router\Adapter;
-
-abstract class namesAbstract
+/**
+ * Class namesAbstract
+ * @package Router\Adapter
+ */
+abstract class NamesAbstract
 {
 	public function obj2array($arrObjData, $arrSkipIndices = [])
 	{

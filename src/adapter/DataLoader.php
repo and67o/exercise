@@ -4,7 +4,7 @@ namespace Router\Adapter;
 
 use SimpleXMLElement;
 
-class DataLoader extends namesAbstract implements NamesProcess
+class DataLoader extends NamesAbstract implements NamesProcess
 {
 	private $file;
 	
