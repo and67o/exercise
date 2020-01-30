@@ -27,6 +27,25 @@ class AlgorithmsTest extends TestCase
 	}
 	
 	/**
+	 * @param $expected
+	 * @param $array
+	 * @dataProvider providerSortBubble
+	 */
+	public function testSortBubble($expected, $array)
+	{
+		$this->assertSame($expected, Algorithms::sortBubble($array));
+	}
+	
+	public function providerSortBubble()
+	{
+		return [
+			[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 0, 6, 9, 4, 5, 2, 3, 8, 7],],
+			[[0, 3, 3, 4, 8, 11, 12, 25, 45, 897], [0, 25, 4, 45, 11, 3, 12, 3, 8, 897]]
+		];
+	}
+	
+	
+	/**
 	 * @param array $expected
 	 * @param array $nums
 	 * @param int $target
@@ -47,6 +66,27 @@ class AlgorithmsTest extends TestCase
 			[[3, 4], [3, 5, 8, 1, -1], 0],
 			[[], [3, 5, 8, 1, -1], 67],
 			[[0, 1], [0, 0, 0, 0, -1], 0],
+		];
+	}
+	
+	/**
+	 * @param $expected
+	 * @param $n
+	 * @dataProvider providerFactorial
+	 */
+	public function testFactorial($expected, $n)
+	{
+		$this->assertSame($expected, Algorithms::factorial($n));
+	}
+	
+	public function providerFactorial()
+	{
+		return [
+			[24, 4],
+			[5040, 7],
+			[1, 1],
+			[1, true],
+			[1, 0],
 		];
 	}
 	
@@ -171,8 +211,29 @@ class AlgorithmsTest extends TestCase
 	public function providerMissingNumber()
 	{
 		return [
-			[2, [3,0,1]],
-			[8, [9,6,4,2,3,5,7,0,1]],
+			[2, [3, 0, 1]],
+			[8, [9, 6, 4, 2, 3, 5, 7, 0, 1]],
+		];
+	}
+	
+	/**
+	 * @param array $expected
+	 * @param $N
+	 * @dataProvider providerBitwiseComplement
+	 */
+	public function testBitwiseComplement($expected, $N)
+	{
+		$this->assertSame($expected, Algorithms::bitwiseComplement($N));
+	}
+	
+	public function providerBitwiseComplement()
+	{
+		return [
+			[2, 5],
+			[0, 7],
+			[5, 10],
+			[6, 25],
+			[456, 567],
 		];
 	}
 }

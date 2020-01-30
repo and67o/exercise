@@ -126,6 +126,23 @@ class Algorithms
 	}
 	
 	/**
+	 * Buble sort
+	 * @param $array
+	 * @return mixed
+	 */
+	public static function sortBubble($array)
+	{
+		for ($j = 0; $j < count($array) - 1; $j++) {
+			for ($i = 0; $i < count($array) - $j - 1; $i++) {
+				if ($array[$i] > $array[$i + 1]) {
+					[$array[$i + 1], $array[$i]] = [$array[$i], $array[$i + 1]];
+				}
+			}
+		}
+		return $array;
+	}
+	
+	/**
 	 * Given a sorted array and a target value, return the index if the target is found.
 	 * If not, return the index where it would be if it were inserted in order.
 	 * @param array $nums
@@ -184,6 +201,19 @@ class Algorithms
 	}
 	
 	/**
+	 * Factorial
+	 * @param $n
+	 * @return float|int
+	 */
+	public static function factorial($n)
+	{
+		return $n <= 1
+			? 1
+			: $n * self::factorial($n - 1);
+		
+	}
+	
+	/**
 	 * Given a non-empty array of integers, every element appears twice except for one. Find that single one.
 	 * @param array $nums
 	 * @return mixed
@@ -213,12 +243,33 @@ class Algorithms
 	 * @param array $nums
 	 * @return int
 	 */
-	public  static function missingNumber($nums) {
+	public static function missingNumber($nums)
+	{
 		sort($nums);
 		for ($i = 0; $i <= count($nums); $i++) {
 			if ($i != $nums[$i]) {
 				return (int) $i;
 			}
 		}
+	}
+	
+	/**
+	 * Every non-negative integer N has a binary representation.  For example, 5 can be represented as "101"
+	 * in binary, 11 as "1011" in binary, and so on.  Note that except for N = 0, there are no leading zeroes
+	 * in any binary representation/
+	 * The complement of a binary representation is the number in binary you get when changing every 1 to a 0 and 0 to a 1.
+	 *  For example, the complement of "101" in binary is "010" in binary.
+	 * @param $N
+	 * @return string
+	 */
+	public static function bitwiseComplement($N)
+	{
+		$bin = decbin($N);
+		$binArray = str_split($bin);
+		$newNumber = [];
+		foreach ($binArray as $number) {
+			$newNumber[] = $number == 0 ? 1 : 0;
+		}
+		return bindec(implode($newNumber));
 	}
 }
