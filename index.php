@@ -16,7 +16,7 @@ $Router = new Router();
 $Router->run();
 
 //////////////////////////////////////////////////
-
+//Adapter\
 //$xmlObj = new DataLoader(file_get_contents('src/adapter/data/file.xml'));
 //$names1 = new Adapter\AdapterJSON($xmlObj);
 //$data1 = $names1->handleNames();
