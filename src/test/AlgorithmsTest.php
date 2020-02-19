@@ -236,4 +236,45 @@ class AlgorithmsTest extends TestCase
 			[456, 567],
 		];
 	}
+	
+	/**
+	 * @param array $expected
+	 * @param $l
+	 * @param $r
+	 * @dataProvider providerGetOddNumbers
+	 */
+	public function testGetOddNumbers($expected, $l, $r)
+	{
+		$this->assertSame($expected, Algorithms::getOddNumbers($l, $r));
+	}
+	
+	public function providerGetOddNumbers()
+	{
+		return [
+			[[2, 4], 2, 5],
+			[[0, 2, 4, 6], 0, 7],
+			[[6, 8, 10], 5, 10],
+		];
+	}
+	
+	/**
+	 * @param $expected
+	 * @param $nums
+	 * @param $k
+	 * @dataProvider providerGetPairs
+	 */
+	function testRotate($expected, $nums, $k)
+	{
+		$this->assertSame($expected, Algorithms::RotateOne($nums, $k));
+		$this->assertSame($expected, Algorithms::rotateTwo($nums, $k));
+	}
+	
+	public function providerGetPairs()
+	{
+		return [
+			[[5, 6, 7, 1, 2, 3, 4], [1, 2, 3, 4, 5, 6, 7], 3],
+			[[3, 99, -1, -100], [-1, -100, 3, 99], 2]
+		];
+	}
+
 }

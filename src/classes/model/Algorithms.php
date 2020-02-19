@@ -272,4 +272,57 @@ class Algorithms
 		}
 		return bindec(implode($newNumber));
 	}
+	
+	/**
+	 * @param $l
+	 * @param $r
+	 * @return array
+	 */
+	public static function getOddNumbers($l, $r)
+	{
+		$odd = [];
+		for ($i = $l; $i <= $r; $i++) {
+			if ($i % 2 === 0) {
+				$odd[] = $i;
+			}
+		}
+		return $odd;
+	}
+	
+	/**
+	 * Given an array, rotate the array to the right by k steps, where k is non-negative.
+	 * @param $nums
+	 * @param $k
+	 * @return int
+	 */
+	public static function rotateOne($nums, $k)
+	{
+		for ($i = 0; $i < $k; $i++) {
+			array_unshift($nums, array_pop($nums));
+		}
+		return $nums;
+	}
+	
+	/**
+	 * Given an array, rotate the array to the right by k steps, where k is non-negative.
+	 * @param $nums
+	 * @param $k
+	 * @return array
+	 */
+	public static function rotateTwo($nums, $k)
+	{
+		$len = count($nums);
+		$k = $k > $len ? $k % $len : $k;
+		
+		$count = 0;
+		for ($i = 0; $i < $len; $i++) {
+			if (($k + $i) >= $len) {
+				$readyNums[$count++] = $nums[$i];
+			} else {
+				$readyNums[$k + $i] = $nums[$i];
+			}
+		}
+		ksort($readyNums);
+		return $readyNums;
+	}
 }
