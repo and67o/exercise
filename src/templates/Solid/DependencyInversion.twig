@@ -1,0 +1,90 @@
+{% extends '/base/base.twig' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <a href="Solid">Назад</a>
+    <h1>Принцип инверсии зависимостей</h1>
+    <p>Объектом зависимости должна быть абстракция, а не что-то конкретное.</p>
+    <div class="code">
+        <pre><code>
+            class xmlHttpRequestService{}
+            
+            class XmlHttpService extends xmlHttpRequestService
+            {
+                public function request($url, $type){}
+            }
+            
+            class Http
+            {
+                private XmlHttpService $XmlHttpService;
+                
+                public function __construct(XmlHttpService $XmlHttpService)
+                {
+                    $this->XmlHttpService = new XmlHttpService();
+                }
+                
+                public function get($url, $options)
+                {
+                    return $this->XmlHttpService->request($url, 'get');
+                }
+                
+                public function post($url, $options)
+                {
+                    return $this->XmlHttpService->request($url, 'post');
+                }
+            }
+            </code></pre>
+    </div>
+    <p>Проблема в том, что сильно большая зависимость</p>
+    <div class="code">
+        <pre><code>
+            
+            class xmlHttpRequestService_v2
+            {
+                public function open(){}
+                
+                public function send(){}
+            }
+
+            interface Connection
+            {
+                public function request($url, $type);
+            }
+
+            class XmlHttpService_v2 implements Connection
+            {
+                public function request($url, $type)
+                {
+                    $xhr = new xmlHttpRequestService_v2();
+                    
+                    $xhr->open();
+                    $xhr->send();
+                }
+            }
+
+            class Http_v2
+            {
+                private XmlHttpService $httpConnection;
+                
+                public function __construct(Connection $XmlHttpService)
+                {
+                    $this->httpConnection = new XmlHttpService();
+                }
+                
+                public function get($url, $options)
+                {
+                    return $this->httpConnection->request($url, 'get');
+                }
+                
+                public function post($url, $options)
+                {
+                    return $this->httpConnection->request($url, 'post');
+                }
+            }
+        </code></pre>
+        Classes: src/classes/SOLID/DependencyInversion.php
+    </div>
+{% endblock %}

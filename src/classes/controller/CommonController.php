@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Router\src\classes\controller;
+namespace Router\Controller;
 
 
 use Router\Router;
@@ -11,6 +11,10 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
 
+/**
+ * Class CommonController
+ * @package Router\src\classes\controller
+ */
 class CommonController
 {
 	/** @var string назваине шаблона */

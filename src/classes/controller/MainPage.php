@@ -1,6 +1,6 @@
 <?php
 
-namespace Router\src\classes\controller;
+namespace Router\Controller;
 
 /**
  * Главная страница

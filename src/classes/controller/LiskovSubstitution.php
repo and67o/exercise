@@ -1,21 +1,18 @@
 <?php
 
-
 namespace Router\Controller;
 
-
+use Router\Controller\CommonController;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class Algorithms
- * @package Router\src\classes\controller
+ * Class LiskovSubstitution
  */
-class Algorithms extends CommonController
+class LiskovSubstitution extends CommonController
 {
-	
-	protected $tplName = 'Algoritms/Algoritms';
-	protected $pageTitle = 'Алгоритмы';
+	protected $tplName = 'Solid/LiskovSubstitution';
+	protected $pageTitle = 'LiskovSubstitution';
 	
 	/**
 	 *

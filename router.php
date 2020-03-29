@@ -2,10 +2,13 @@
 
 namespace Router;
 
-
+/**
+ * Class Router
+ * @package Router
+ */
 Class Router
 {
-	const PATH_CONTROLLER = '\Router\src\classes\controller\\';
+	const PATH_CONTROLLER = '\Router\Controller\\';
 	
 	private static $defaultControllerName = 'MainPage';
 	private static $defaultMethodName = 'index';

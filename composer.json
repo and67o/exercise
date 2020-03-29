@@ -16,6 +16,7 @@
     "psr-4": {
       "Router\\": "",
       "Router\\Controller\\": "src/classes/controller/",
+      "Router\\Controller\\Solid\\": "src/classes/controller/Solid/",
       "Router\\Models\\": "src/classes/model/",
       "Router\\Adapter\\": "src/adapter/",
       "Router\\TemplateMethod\\": "src/templateMethod/"

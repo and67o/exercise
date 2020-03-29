@@ -1,24 +1,21 @@
 <?php
 
-
 namespace Router\Controller;
-
 
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class Algorithms
- * @package Router\src\classes\controller
+ * Class PageNotFound
+ * @package Router\Controller
  */
-class Algorithms extends CommonController
+class PageNotFound extends CommonController
 {
-	
-	protected $tplName = 'Algoritms/Algoritms';
-	protected $pageTitle = 'Алгоритмы';
-	
+	protected $tplName = 'pageNotFound';
+	protected $pageTitle = 'Страница не найдена';
+
 	/**
-	 *
+	 * Страница 404
 	 */
 	public function index()
 	{
@@ -28,4 +25,5 @@ class Algorithms extends CommonController
 		} catch (SyntaxError $e) {
 		}
 	}
+	
 }

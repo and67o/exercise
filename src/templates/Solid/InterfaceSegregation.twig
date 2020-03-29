@@ -1,0 +1,44 @@
+{% extends '/base/base.twig' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <a href="Solid">Назад</a>
+    <h1>Принцип разделения интерфейса</h1>
+    <p>Клиенты не должны зависеть от интерфейсов, которые они не используют</p>
+    <h2>Пример</h2>
+    <div class="code">
+        <pre><code>
+        interface PhoneMemory
+        {
+            public function getIphoneMemory();
+            
+            public function getSonyMemory();
+        }
+                
+        class Apple implements PhoneMemory {
+        	
+            public function getIphoneMemory(){}
+            
+            public function getSonyMemory(){}
+        }        
+        </code></pre>
+    </div>
+    <p>Если класс реализвует избыточный интерфейс, то лучше их разделить на два</p>
+    <div class="code">
+        <pre><code>
+            interface IphoneMemory
+            {
+                public function getIphoneMemory();
+            }  
+                
+            class AppleV2 implements IphoneMemory {
+                public function getIphoneMemory(){}
+            }
+        </code></pre>
+    </div>
+    Interface: src/classes/interfaces/Solid/InterfaceSegregation
+    Classes: src/classes/SOLID/InterfaceSegregation.php
+{% endblock %}

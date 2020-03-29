@@ -1,0 +1,39 @@
+{% extends '/base/base.twig' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <a href="Solid">Назад</a>
+    <h1>Принцип подстановки Барбары Лисков</h1>
+    <p>Подклассы не могут замещать поведение базовых классов</p>
+    <div class="code">
+        <pre><code>
+            interface Figure
+            {
+                public function setWidth();
+               
+                public function setHeight();
+              
+                public function sqrOf();
+            }
+            class Rectangle implements Figure
+            {
+                public function setWidth(){}
+                
+                public function setHeight(){}
+                
+                public function sqrOf(){}
+            }
+            class Squer implements Figure
+            {
+                public function setWidth(){}
+            
+                public function setHeight(){}
+            
+                public function sqrOf(){}
+            } 
+        </code></pre>
+    </div>
+{% endblock %}

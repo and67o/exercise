@@ -8,14 +8,13 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class Algorithms
- * @package Router\src\classes\controller
+ * Class DependencyInversion
+ * @package Router\Controller
  */
-class Algorithms extends CommonController
+class DependencyInversion extends CommonController
 {
-	
-	protected $tplName = 'Algoritms/Algoritms';
-	protected $pageTitle = 'Алгоритмы';
+	protected $tplName = 'Solid/DependencyInversion';
+	protected $pageTitle = 'DependencyInversion';
 	
 	/**
 	 *

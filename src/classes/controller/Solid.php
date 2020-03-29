@@ -8,20 +8,15 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class Algorithms
+ * Class Solid
  * @package Router\src\classes\controller
  */
-class Algorithms extends CommonController
+class Solid extends CommonController
 {
+	protected $tplName = 'Solid/Solid';
+	protected $pageTitle = 'Solid';
 	
-	protected $tplName = 'Algoritms/Algoritms';
-	protected $pageTitle = 'Алгоритмы';
-	
-	/**
-	 *
-	 */
-	public function index()
-	{
+	public function index() {
 		try {
 			$this->render();
 		} catch (RuntimeError $e) {

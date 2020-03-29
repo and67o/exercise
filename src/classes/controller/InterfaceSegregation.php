@@ -8,14 +8,13 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class Algorithms
- * @package Router\src\classes\controller
+ * Class InterfaceSegregationPrinciple
+ * @package Router\Controller
  */
-class Algorithms extends CommonController
+class InterfaceSegregation extends CommonController
 {
-	
-	protected $tplName = 'Algoritms/Algoritms';
-	protected $pageTitle = 'Алгоритмы';
+	protected $tplName = 'Solid/InterfaceSegregation';
+	protected $pageTitle = 'InterfaceSegregation';
 	
 	/**
 	 *

@@ -1,0 +1,54 @@
+{% extends '/base/base.twig' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <a href="Solid">Назад</a>
+    <h1>Принцип единственной ответственности</h1>
+    <p>Класс должен быть ответственен только за что-нибдуь одно</p>
+    <h2>Пример</h2>
+    <p>Есть класс HomeWork</p>
+    <div class="code">
+        <pre><code>
+            interface HomeWorkWrong
+            {
+                public function washTheWindow(int $water) : bool;
+        
+                public function washTheFloor(int $water) : bool;
+        
+                public function washTheDishes(int $water) : bool;
+        
+                public function fixTheTable(array $instruments) : bool;
+        
+                public function fixTheChair(array $instruments) : bool;
+            } 
+            </code></pre>
+    </div>
+    <p>Данный класс реализует слишком много всего, лучше его разбить на более мелкие классы</p>
+    <div class="code">
+        <pre><code>
+            interface HomeWorkWash
+            {
+                public function washTheWindow(int $water) : bool;
+            
+                public function washTheFloor(int $water) : bool;
+            
+                public function washTheDishes(int $water) : bool;
+            }
+        </code></pre>
+    </div>
+    <div class="code">
+        <pre><code>
+           interface HomeWorkFix
+            {
+                public function fixTheTable(array $instruments) : bool;
+            
+                public function fixTheChair(array $instruments) : bool;
+            } 
+        </code></pre>
+        Interfaces: src/classes/interfaces/Solid/SingleResponsibility
+        Class: src/classes/SOLID/SingleResponsibilityPrincipie.php
+    </div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends '/base/base.twig' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <a href="Solid">Назад</a>
+    <h1>Принцип открытости-закрытости</h1>
+    <p>Должны быть открыты для расширения, но не для модификации.</p>
+    <h2>Пример</h2>
+    Есть класс Phone, который возращает цену Apple или Sony
+    <div class="code">
+        <pre><code>
+            class Phone
+            {
+                public function getPrice($mark)
+                {
+                    switch ($mark) {
+                        case 'apple':
+                            return '200$';
+                        case 'sony':
+                            return '100$';
+                    }
+                }
+            }  
+        </code></pre>
+    </div>
+    <p>с каждым добавление фирмы будет требоваться модифицировать данный метод.
+        Поэтому следует реализовать один общий класс с методом возврата цены</p>
+    <p>Есть две класса телефонов Apple и Sony у каждого есть метод getPrice, который возвращает цену.</p>
+    <div class="code">
+        <pre><code>
+            abstract class PhonePrice
+            {
+                abstract function getPrice() : string;
+            }
+
+            class Sony extends PhonePrice
+            {
+                function getPrice() : string
+                {
+                    return '100$';
+                }
+            }
+
+            class Apple extends PhonePrice
+            {
+    
+                function getPrice() : string
+                {
+                    return '200$';
+                }
+            }   
+        </code></pre>
+    </div>
+    Class: src/classes/SOLID/O/OpenClosed.php
+{% endblock %}
